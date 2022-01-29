@@ -5,6 +5,10 @@
 Grakkit is a Minecraft Server Plugin utilizing the GraalVM JavaScript Engine. This repository is a boilerplate
 implementation to quickly spawn up a workspace to get started using Babel, Webpack, and TypeScript.
 
+This boilerplate features a "Hot Reload" method, which speeds up development significantly. Whenever you make changes to
+your code during Runtime and hit save, it'll rebuild the solution then reload it on the server. This takes less than a
+second.
+
 # Getting Started
 
 1. Click the "Use this template" in the top right.
@@ -19,6 +23,8 @@ implementation to quickly spawn up a workspace to get started using Babel, Webpa
 - Open another terminal and run `npm run start:server` or `yarn start:server`
   - When running it for the first time, you'll need to accept the `EULA` in `./server/eula.txt`.
   - After updating the `EULA`, you may need to restart the server.
+
+3. Once everything is up and running, you can now start developing in `./src/index.ts`.
 
 # How It Works
 
