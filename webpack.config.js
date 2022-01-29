@@ -1,4 +1,5 @@
 /* global __dirname, require, module */
+const http = require('http')
 const webpack = require('webpack')
 const path = require('path')
 
@@ -11,9 +12,7 @@ const createConfig = (env) => ({
   devtool: 'source-map',
   watch: isDev(env),
   output: {
-    path: isDev(env)
-      ? path.join(__dirname, 'server/plugins/grakkit')
-      : path.join(__dirname, 'dist'),
+    path: isDev(env) ? path.join(__dirname, 'server/plugins/grakkit') : path.join(__dirname, 'dist'),
     filename: 'index.js',
     library: 'test',
     libraryTarget: 'commonjs',
@@ -30,6 +29,11 @@ const createConfig = (env) => ({
         exclude: /(node_modules|bower_components)/,
       },
     ],
+  },
+  externals: {
+    http: 'http',
+    // '@grakkit/server': '@grakkit/server',
+    '@grakkit/server-classes': '@grakkit/server-classes',
   },
   resolve: {
     extensions: ['.json', '.js', '.ts'],
