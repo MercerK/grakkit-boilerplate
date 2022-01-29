@@ -36,7 +36,7 @@
     "@grakkit/server": "^1.4.2"
   },
   "scripts": {
-    "start:server": "cd server & java -Xms2G -Xmx2G -jar paper.jar -nogui",
+    "start:server": "cd server & java -Xms2G -Xmx2G -jar server.jar -nogui",
     "start": "ts-node --project tsconfig-node.json ./scripts/start",
     "build": "webpack --env production"
   }
