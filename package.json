@@ -1,0 +1,43 @@
+{
+  "author": "Kyle Mercer",
+  "name": "grakkit-boilerplate",
+  "description": "Boilerplate impl. using Babel, Webpack, and TypeScript",
+  "license": "MIT",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MercerK/grakkit-boilerplate"
+  },
+  "keywords": [
+    "grakkit",
+    "minecraft"
+  ],
+  "dependencies": {
+    "@grakkit/stdlib-paper": "^1.0.12",
+    "grakkit-boilerplate-util": "^0.0.18",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/node": "^16.4.6",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-add-module-exports": "^1.0.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "got": "^11.8.2",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0"
+  },
+  "peerDependencies": {
+    "@grakkit/server": "^1.4.2"
+  },
+  "scripts": {
+    "start:server": "cd server & java -Xms2G -Xmx2G -jar paper.jar -nogui",
+    "start": "ts-node --project tsconfig-node.json ./scripts/start",
+    "build": "webpack --env production"
+  }
+}
