@@ -9,13 +9,15 @@ This boilerplate features a "Hot Reload" method, which speeds up development sig
 your code during Runtime and hit save, it'll rebuild the solution then reload it on the server. This takes less than a
 second.
 
+![Hot Reload](./docs/assets/hotreload.gif)
+
 # Getting Started
 
 1. Click the "Use this template" in the top right.
 2. Once you have cloned the repo and have it locally, you'll need to do the following:
 
 - Download your preferred Minecraft Server Plugin implementation
-  - Grakkit only supports [Paper](https://papermc.io/downloads) or Minestorm.
+  - Grakkit only supports [Paper](https://papermc.io/downloads) or Minestom.
 - Place the server plugin jar file in the `./server` folder and rename it to `server.jar`.
 - Download the [Grakkit jar](https://github.com/grakkit/grakkit/releases) and place it in the `./server/plugins` folder.
 - Run `npm install` or `yarn`.
@@ -26,11 +28,20 @@ second.
 
 3. Once everything is up and running, you can now start developing in `./src/index.ts`.
 
+# What can you do with this?
+
+- Through Grakkit, you have access to both Java and Paper classes, objects, and types.
+- You can import existing JavaScript libraries and use them within your plugin, such as Lodash, Redux, Yaml, Immer, and
+  so many more.
+  - Note: NodeJS does not work within GraalVM, so you cannot use libraries expecting NodeJS API.
+  - Note: Fetch/Websockets/Multithreading can be a challenge.
+- You can access the API of other server plugins, such as LibsDisguises, PlaceholderAPI, and so many more.
+
 # How It Works
 
 ## Development Mode `npm run start`/`yarn start`
 
-1. This uses a webserver within the minecraft server.
+1. This spawns a webserver within the Minecraft server.
 2. When in development mode, it enables a new API route called `/reload`.
 3. The solution is built using webpack (which is _fast_) and it will put the compiled files in `server/plugins/grakkit`.
 4. Using a custom start up script in `scripts/start/index.ts`, it will build the solution, enable development mode, and
@@ -40,7 +51,7 @@ second.
 ## Production Mode `npm run build`/`yarn build`
 
 1. Using webpack, it'll build the files to `/dist`. Any code relying on `development` will be disabled.
-2. This is a useful step for deploymnets.
+2. This can be a useful step for deployments.
 
 # Startup
 
