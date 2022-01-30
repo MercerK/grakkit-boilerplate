@@ -21,7 +21,7 @@ second.
 - Place the server plugin jar file in the `./server` folder and rename it to `server.jar`.
 - Download the [Grakkit jar](https://github.com/grakkit/grakkit/releases) and place it in the `./server/plugins` folder.
 - Run `npm install` or `yarn`.
-- Open a terminal and run `npm run start` or `yarn start`. This will start the webpack.
+- Open a terminal and run `npm run start:js` or `yarn start:js`. This will start the webpack.
 - Open another terminal and run `npm run start:server` or `yarn start:server`
   - When running it for the first time, you'll need to accept the `EULA` in `./server/eula.txt`.
   - After updating the `EULA`, you may need to restart the server.
@@ -41,7 +41,7 @@ second.
 
 # How It Works
 
-## Development Mode `npm run start`/`yarn start`
+## Development Mode `npm run start:js`/`yarn start:js`
 
 1. This spawns a webserver within the Minecraft server.
 2. When in development mode, it enables a new API route called `/reload`.
@@ -57,8 +57,12 @@ second.
 
 # Startup
 
-1. Run `npm run start` or `yarn start`
+1. Run `npm run start:js` or `yarn start:js`
 2. Run `npm run start:server` or `yarn start:server`
+
+OR
+
+1. Run `npm run start` or `yarn start`
 
 # Info
 

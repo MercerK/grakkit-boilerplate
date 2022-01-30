@@ -3,7 +3,7 @@
   "name": "grakkit-boilerplate",
   "description": "Boilerplate impl. using Babel, Webpack, and TypeScript",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/MercerK/grakkit-boilerplate"
@@ -29,6 +29,7 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "concurrently": "^7.0.0",
     "got": "^11.8.2",
     "ts-node": "^10.0.0",
     "typescript": "^4.5.5",
@@ -40,7 +41,8 @@
   },
   "scripts": {
     "start:server": "cd server & java -Xms2G -Xmx2G -jar server.jar -nogui",
-    "start": "ts-node --project tsconfig-node.json ./scripts/start",
+    "start:js": "ts-node --project tsconfig-node.json ./scripts/start",
+    "start": "concurrently \"npm run start:server\" \"npm run start:js\"",
     "build": "webpack --env production"
   }
 }
