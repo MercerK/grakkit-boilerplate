@@ -31,11 +31,13 @@ second.
 # What can you do with this?
 
 - Through Grakkit, you have access to both Java and Paper classes, objects, and types.
+- You can access the API of other server plugins, such as LibsDisguises, PlaceholderAPI, and so many more.
 - You can import existing JavaScript libraries and use them within your plugin, such as Lodash, Redux, Yaml, Immer, and
   so many more.
   - Note: NodeJS does not work within GraalVM, so you cannot use libraries expecting NodeJS API.
   - Note: Fetch/Websockets/Multithreading can be a challenge.
-- You can access the API of other server plugins, such as LibsDisguises, PlaceholderAPI, and so many more.
+
+![Lodash](./docs/assets/lodash.gif)
 
 # How It Works
 
