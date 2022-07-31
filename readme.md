@@ -11,6 +11,27 @@ second.
 
 ![Hot Reload](./docs/assets/hotreload.gif)
 
+# What is new?
+
+We have been hard at work revamping our typing implementation for grakkit. In the previous implementation, it was
+limited to a fixed set of snapshot types for only Bukkit/Paper. However, with the newest implementation, we are
+leveraging `@graal-types` and a custom babel plugin!
+
+```ts
+// Old; No need to do this anymore
+const Bukkit = core.type('org.bukkit.Bukkit')
+
+// New
+import { Bukkit } from 'org.bukkit'
+```
+
+By leveraging the `import` feature and a change in `tsconfig`, this allows us to import type definitions from external
+libraries. If you want to integrate your plugin with another plugin library (such as LuckPerms, Essentials), it just
+became significantly easier!
+
+You can checkout a list of typings available over at
+[@Graal/Types](https://github.com/graal-types/graal-types/tree/main/types).
+
 # Getting Started
 
 1. Click the "Use this template" in the top right.
