@@ -3,7 +3,7 @@
   "name": "grakkit-boilerplate",
   "description": "Boilerplate impl. using Babel, Webpack, and TypeScript",
   "license": "MIT",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/MercerK/grakkit-boilerplate"
@@ -14,7 +14,7 @@
   ],
   "dependencies": {
     "@grakkit/stdlib-paper": "^1.0.12",
-    "grakkit-boilerplate-util": "^0.0.18",
+    "grakkit-boilerplate-util": "^0.0.21",
     "grakkit-sound-browser": "^0.0.5",
     "lodash": "^4.17.21"
   },
@@ -24,11 +24,14 @@
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-typescript": "^7.13.0",
+    "@graal-types/java-16": "^1.0.0",
+    "@graal-types/paper-1.18": "^1.0.0",
     "@types/lodash": "^4.14.178",
     "@types/node": "^16.4.6",
     "babel-loader": "^8.2.2",
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-graal-imports": "^0.0.2",
     "concurrently": "^7.0.0",
     "got": "^11.8.2",
     "ts-node": "^10.0.0",

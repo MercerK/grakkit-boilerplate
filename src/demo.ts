@@ -1,12 +1,16 @@
-import { obePlayer } from '@grakkit/types-paper'
-import { event, server, command } from '@grakkit/stdlib-paper'
+import { PlayerJoinEvent, PlayerQuitEvent } from 'org.bukkit.event.player'
+import { command } from '@grakkit/stdlib-paper'
 // You can use the existing npm modules within Minecraft
 import debounce from 'lodash/debounce'
 // You can import other grakkit plugins into your own as well!
 import { SoundBrowser } from 'grakkit-sound-browser'
+import { Bukkit } from 'org.bukkit'
+import { Player } from 'org.bukkit.entity'
+import { createEvent } from 'grakkit-boilerplate-util'
+import { ChunkLoadEvent } from 'org.bukkit.event.world'
 
 function initializePlayerJoin() {
-  event('org.bukkit.event.player.PlayerJoinEvent', (event) => {
+  createEvent(PlayerJoinEvent, (event) => {
     const player = event.getPlayer()
 
     sendPlayerMessage(player, 'Hello! Welcome to Grakkit Boilerplate!')
@@ -21,19 +25,19 @@ function initializePlayerJoin() {
 }
 
 function initializePlayerQuit() {
-  event('org.bukkit.event.player.PlayerQuitEvent', (event) => {
-    server.broadcastMessage(`${event.getPlayer().getName()} has left! Please come back soon.`)
+  createEvent(PlayerQuitEvent, (event) => {
+    Bukkit.broadcastMessage(`${event.getPlayer().getName()} has left! Please come back soon.`)
   })
 }
 
 function initializeChunkLoad() {
   let count = 0
   const debouncedFn = debounce(() => {
-    server.broadcastMessage(`${count} Chunks have been loaded.`)
+    Bukkit.broadcastMessage(`${count} Chunks have been loaded.`)
     count = 0
   }, 1000)
 
-  event('org.bukkit.event.world.ChunkLoadEvent', (event) => {
+  createEvent(ChunkLoadEvent, (event) => {
     count++
     debouncedFn()
   })
@@ -56,8 +60,6 @@ export function initializeDemo() {
   SoundBrowser.initialize()
 }
 
-function sendPlayerMessage(player: obePlayer, msg: string) {
-  // Some typings are not a 100% match, but will allow you to work regardless.
-  // In this instance, it expects "nmbacBaseComponent", but it will allow a string.
-  player.sendMessage(msg as any)
+function sendPlayerMessage(player: Player, msg: string) {
+  player.sendMessage(msg)
 }

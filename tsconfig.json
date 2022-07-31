@@ -13,6 +13,7 @@
     "skipLibCheck": true,
     "target": "es2020",
     "watch": true,
+    "typeRoots": ["node_modules/@graal-types"],
   },
   "include": [
     "src/**/*"
